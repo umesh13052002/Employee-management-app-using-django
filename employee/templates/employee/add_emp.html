@@ -16,11 +16,68 @@
       crossorigin="anonymous"
     />
 
-    <title>Hello, world!</title>
+    <title>Add Employee</title>
   </head>
   <body>
     {% include 'employee/navbar.html' %}
-    <h1>Hello, world!</h1>
+    <div class="container mb-3">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <h3 class="text-center mt-3">Fill the below form to add employee</h3>
+          <!-- Form content here -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="col-md-8 offset-md-2">
+        <div class="card">
+          <div class="card-body">
+            <form method="post" action="/student/add-emp/">
+              {% csrf_token %}
+              <div class="mb-3">
+                <label for = "name">Enter Employee Name: </label>
+                <input type="text" class="form-control" id="name" placeholder="Enter Employee Name" name= "emp_name" />
+              </div>
+
+              <div class="mb-3">
+                <label for="id">Enter Employee Id: </label>
+                <input type="text" class="form-control" id = "id" placeholder="Enter Employee Id" name="emp_id"/>
+              </div>
+
+              <div class="mb-3">
+                <label for="phone">Enter Employee Phone: </label>
+                <input type="text" class="form-control" id = "phone" placeholder="Enter Employee Phone Number" name="emp_phone"/>
+              </div>
+
+              <div class="mb-3">
+                <label for="address">Enter Employee Address: </label>
+                <textarea class="form-control" id="address" placeholder="Enter Employee Address" rows="5" name="emp_address" ></textarea>
+              </div>
+
+              <div class="mb-3">
+                <label for="working">Employee Working Status: </label>
+                <input type="checkbox" id = "working" name="emp_working"/>
+              </div>
+
+              <div class="mb-3">
+                <label for="department">Enter Employee Department: </label>
+                
+                <select class="form-control" name="emp_department">
+                  <option value="cse">CSE</option>
+                  <option value="me">Mechanical Engineering</option>
+                  <option value="me">Electrical Engineering</option>
+                </select>
+                
+
+              </div>
+
+              <button class="btn btn-primary">Add Employee</button
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
